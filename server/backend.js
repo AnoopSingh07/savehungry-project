@@ -2,6 +2,7 @@ const express = require("express");
 // const cors = require("cors");
 const { default: mongoose } = require("mongoose");
 const path=require('path');
+require("dotenv").config();
 const PORT = process.env.PORT || 9002;
 
 const app = express();
@@ -9,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 // app.use(cors());
 //localhost-->>////////////     'mongodb://localhost:27017/myFoodysiteLoginRegisterDB' 
-mongoose.connect("mongodb+srv://Anoop:KfKvsKxWxW7rTZ8C@cluster0.tce623z.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect(process.env.Mongo_Url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, () => {
